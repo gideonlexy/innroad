@@ -4,26 +4,25 @@ import Card from './components/card/card.component'
 import './App.css';
 
 class App extends Component {
+  state = {
+    headings: ['Small Features', 'Booking Engine', 'Rates', 'CC Gateway', 'CRM/Email Marketing']
+  }
 
   render() {
-
+    const { headings } = this.state
     return (
       <div>
         <nav className='nav'>
           <h2 className='wrapper'>InnRoad</h2>
         </nav>
-
         <div className='wrapper'>
           <div className='heading'>
-            <h3>Small Features</h3>
-            <h3>Booking Engine</h3>
-            <h3>Rates</h3>
-            <h3>CC Gateway</h3>
-            <h3>CRM/Email Marketing</h3>
+            {headings.map((heading, index) => (
+              <h3 key={index}>{heading}</h3>
+            ))}
           </div>
           <Card />
         </div>
-
       </div>
     );
   }
